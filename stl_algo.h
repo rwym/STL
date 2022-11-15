@@ -132,7 +132,7 @@ inline _ForwardIter upper_bound(_ForwardIter __first, _ForwardIter __last,
 
 template <class _ForwardIter, class _Tp, class _Distance>
 pair<_ForwardIter, _ForwardIter>
-__equal_rangee(_ForwardIter __first, _ForwardIter __last, const _Tp& __val,
+__equal_range(_ForwardIter __first, _ForwardIter __last, const _Tp& __val,
                _Distance*)
 {
   _Distance __len = 0;
@@ -155,7 +155,7 @@ __equal_rangee(_ForwardIter __first, _ForwardIter __last, const _Tp& __val,
       __left = lower_bound(__first, __middle, __val);
       advance(__first, __len);
       __right = upper_bound(++__middle, __first, __val);
-      return pair<_ForwardIter, _ForwardIter>(__first, __first);
+      return pair<_ForwardIter, _ForwardIter>(__left, __right);
     }
   }
   return pair<_ForwardIter, _ForwardIter>(__first, __first);
@@ -165,7 +165,7 @@ template <class _ForwardIter, class _Tp>
 pair<_ForwardIter, _ForwardIter>
 equal_range(_ForwardIter __first, _ForwardIter __last, const _Tp& __val) {
   return __equal_range(__first, __last, __val,
-                       _DISTANCE_TYPE(__first));
+                       __DISTANCE_TYPE(__first));
 }
 
 template <class _ForwardIter, class _Tp, class _Compare, class _Distance>
@@ -193,7 +193,7 @@ __equal_range(_ForwardIter __first, _ForwardIter __last, const _Tp& __val,
       __left = lower_bound(__first, __middle, __val);
       advance(__first, __len);
       __right = upper_bound(++__middle, __first, __val);
-      return pair<_ForwardIter, _ForwardIter>(__first, __first);
+      return pair<_ForwardIter, _ForwardIter>(__left, __right);
     }
   }
   return pair<_ForwardIter, _ForwardIter>(__first, __first);
