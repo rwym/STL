@@ -440,7 +440,7 @@ bool lexicographical_compare(_InputIter1 __first1, _InputIter2 __last1,
 
 template <class _InputIter1, class _InputIter2, class _Compare>
 bool lexicographical_compare(_InputIter1 __first1, _InputIter2 __last1,
-                             _InputIter2 __first2, _InputIter2 __last2
+                             _InputIter2 __first2, _InputIter2 __last2,
                              _Compare __comp) {
   for ( ; __first1 != __last1 && __first2 != __last2
         ; ++__first1, ++__first2) {
