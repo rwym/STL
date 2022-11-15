@@ -112,7 +112,7 @@ _ForwardIter __upper_bound(_ForwardIter __first, _ForwardIter __last,
     __half = __len >> 1;
     __middle = __first;
     advance(__middle, __half);
-    if (__comp(__val * __middle))
+    if (__comp(__val, * __middle))
       __len = __half;
     else {
       __first = __middle;
@@ -182,12 +182,12 @@ __equal_rangee(_ForwardIter __first, _ForwardIter __last, const _Tp& __val,
     __half = __len >> 1;
     __middle = __first;
     advance(__middle, __half);
-    if (__comp(*__middle < __val)) {
+    if (__comp(*__middle, __val)) {
       __first = __middle;
       ++__first;
       __len = __len - __half - 1;
     }
-    else if (__comp(__val < *__middle))
+    else if (__comp(__val, *__middle))
       __len = __half;
     else {
       __left = lower_bound(__first, __middle, __val);
@@ -219,7 +219,7 @@ bool binary_search(_ForwardIter __first, _ForwardIter __last,
                    const _Tp& __val,
                    _Compare __comp) {
   _ForwardIter __i = lower_bound(__first, __last, __val, __comp);
-  return __i != __last && !__comp(__val < *__i);
+  return __i != __last && !__comp(__val, *__i);
 }
 
 
