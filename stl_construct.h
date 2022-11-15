@@ -17,7 +17,7 @@ inline void _Construct(_T1* __p) {
 
 template <class _Tp>
 inline void _Destroy(_Tp* __pointer) {
-  __pointer->~_Tp();
+  if (__pointer != nullptr) __pointer->~_Tp();
 }
 
 template <class _ForwardIterator>
