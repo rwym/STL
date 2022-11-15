@@ -170,7 +170,7 @@ equal_range(_ForwardIter __first, _ForwardIter __last, const _Tp& __val) {
 
 template <class _ForwardIter, class _Tp, class _Compare, class _Distance>
 pair<_ForwardIter, _ForwardIter>
-__equal_rangee(_ForwardIter __first, _ForwardIter __last, const _Tp& __val,
+__equal_range(_ForwardIter __first, _ForwardIter __last, const _Tp& __val,
                _Compare __comp, _Distance*)
 {
   _Distance __len = 0;
