@@ -28,7 +28,7 @@ __uninitialized_copy_aux(_InputIter __first, _InputIter __last,
   _ForwardIter __cur = __result;
   __STL_TRY {
     for ( ; __first != __last; ++__first, ++__cur)
-      _Connstructor(&*__cur, *__first);
+      _Construct(&*__cur, *__first);
     return __cur;
   }
   __STL_UNWIND(_Destroy(__result, __cur));
@@ -48,7 +48,7 @@ inline _ForwardIter
 uninitialized_copy(_InputIter __first, _InputIter __last,
                    _ForwardIter __result)
 {
-  return __uninitialized_copy_aux(__first, __last,
+  return __uninitialized_copy(__first, __last, __result
                                   __VALUE_TYPE(__result));
 }
 
