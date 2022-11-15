@@ -59,7 +59,7 @@ inline _OutputIter __copy(_InputIter __first, _InputIter __last,
                           _OutputIter __result,
                           input_iterator_tag, _Distance*)
 {
-  for ( ; __first != __last; ++__first, ++__first)
+  for ( ; __first != __last; ++__result, ++__first)
     *__result = *__first;
   return __result;
 }
@@ -111,7 +111,7 @@ inline _Tp* __copy_aux2(const _Tp* __first, const _Tp* __last, _Tp* __result,
 }
 
 
-template <class _Inputiter class _Outputiter class _Tp>
+template <class _InputIter class _OutputIter class _Tp>
 inline _OutputIter __copy_aux(_InputIter __first, _InputIter __last,
                               _OutputIter __result, _Tp*) {
   typedef typename __type_taits<_Tp>::has_trivial_assignment_operator
@@ -119,7 +119,7 @@ inline _OutputIter __copy_aux(_InputIter __first, _InputIter __last,
   return __copy_aux2(__first, __last, __result, _Trivial());
 }
 
-template <class _Inputiter class _OutputIter>
+template <class _InputIter class _OutputIter>
 inline _OutputIter copy(_InputIter __first, _InputIter __last,
                         _OutputIter __result) {
   return __copy_aux(__first, __last, __result, __VALUE_TYPE(__first));
