@@ -48,7 +48,7 @@ inline _ForwardIter
 uninitialized_copy(_InputIter __first, _InputIter __last,
                    _ForwardIter __result)
 {
-  return __uninitialized_copy(__first, __last, __result
+  return __uninitialized_copy(__first, __last, __result,
                                   __VALUE_TYPE(__result));
 }
 
