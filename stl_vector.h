@@ -56,7 +56,7 @@ public:
   allocator_type get_allocator() const { return _Base::get_allocator(); }
 
   typedef reverse_iterator<const_iterator> const_reverse_iterator;
-  typedef reverse_iterator<iterator> reverse_iterator;
+  typedef reverse_iterator<iterator> plain_reverse_iterator;
 };
 
 //
