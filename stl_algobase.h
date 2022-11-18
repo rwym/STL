@@ -281,8 +281,8 @@ inline _BI2 copy_backward(_BI1 __first, _BI1 __last, _BI2 __result) {
 template <class _BI1, class _BI2>
 inline _BI2 copy_backward(_BI1 __first, _BI1 __last, _BI2 __result) {
   return __copy_backward(__first, __last, __result,
-                         _ITERATOR_CATEGORY(__first),
-                         _DISTANCE_TYPE(__first));
+                         __ITERATOR_CATEGORY(__first),
+                         __DISTANCE_TYPE(__first));
 };
 
 #endif /* __STL_CLASS _PARTIAL_SPECIALIZATION */

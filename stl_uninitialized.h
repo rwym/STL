@@ -172,9 +172,9 @@ __uninitialized_fill_n(_ForwardIter __first, _Size __n, const _Tp& __x, _Tp1*)
 
 template <class _ForwardIter, class _Size, class _Tp>
 inline _ForwardIter
-__uninitialized_fill_n(_ForwardIter __first, _Size __n, const _Tp& __x)
+uninitialized_fill_n(_ForwardIter __first, _Size __n, const _Tp& __x)
 {
-  return __uninitialized_fill_n_aux(__first, __n, __x, __VALUE_TYPE(__first));
+  return __uninitialized_fill_n(__first, __n, __x, __VALUE_TYPE(__first));
 }
 
 // Extensions: 

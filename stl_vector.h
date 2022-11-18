@@ -502,7 +502,7 @@ vector<_Tp, _Alloc>::_M_insert_aux(iterator __position, const _Tp& __x)
     *__position = __x_copy;
   }
   else {
-    const size_type __old_size = size(0);
+    const size_type __old_size = size();
     const size_type __len = __old_size != 0 ? 2 * __old_size : 1;
     iterator __new_start = _M_allocate(__len);
     iterator __new_finish = __new_start;
